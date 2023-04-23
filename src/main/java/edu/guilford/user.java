@@ -122,9 +122,8 @@ public class user {
         //get the first letter of the user's favorite season
         String seasonLetter = favseason.substring(0, 1);
         //concatenate the first letters of the user's first name, last name, favorite holiday, favorite color, favorite animal, and favorite season
-        String password = firstLetter + lastLetter + holidayLetter + colorLetter + animalLetter + seasonLetter;
-        //print out password
-        System.out.println("Your password is: " + password);
+        password = firstLetter + lastLetter + holidayLetter + colorLetter + animalLetter + seasonLetter;
+        
         
 
         //what is hashcode?

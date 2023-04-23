@@ -77,7 +77,7 @@ public class AES {
             //This is returning the encrypted user's password
             return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
         } catch (Exception e) {
-            //This line of code is used to print out the error message
+            //This line of code is used to print out the error message in case there is an error while encrypting
             System.out.println("Error while encrypting: " + e.toString());
         }
         return null;
