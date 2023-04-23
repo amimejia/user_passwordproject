@@ -1,6 +1,9 @@
 package edu.guilford;
 
+import java.time.Year;
 import java.util.Scanner;
+
+import javax.swing.text.html.parser.DTD;
 
 /**
  * Hello world!
@@ -53,13 +56,36 @@ public class userPassword
 
         //generate a password for the user based on their first name, last name, favorite holiday, favorite color, favorite animal, and favorite season
         userMe.generatePassword();
-        
+        //Let the class handle managing the attributes, and then use the driver program to get the password and print it out
+        System.out.println("Your password is: " + userMe.getPassword());
+
         //encrypt the password using the AES class
         AES aes = new AES();
 
-        String encryptedPassword = aes.encrypt(userMe.getPassword());
+        //// Use the AES encryption algorithm to setKey and encrypt the password from AES.java
+        aes.setKey("ThisisASecretKey");
+        String strToEncrypt = userMe.getPassword();
+        String encryptedPassword = aes.encrypt(strToEncrypt,"ThisisASecretKey");
         System.out.println("Your encrypted password is: " + encryptedPassword);
 
+        //decrypt the password using the AES class
+        String strToDecrypt = encryptedPassword;
+        String decryptedPassword = aes.decrypt(strToDecrypt, "ThisIsASecretKey");
+        System.out.println("Your decrypted password is: " + decryptedPassword + "\n");  
 
-
+        //Make user decide if they want to decrypt the password
+        //System.out.println("Would you like to decrypt your password? (y/n)");
+        
+        //String decrypt = input.nextLine();
+        //if(decrypt == "y") {
+            //String strToDecrypt = encryptedPassword;
+            //String decryptedPassword = aes.decrypt(strToDecrypt, "ThisIsASecretKey");
+            //System.out.println("Your decrypted password is: " + decryptedPassword + "\n");  
+        
+//}
+        //else {
+            //System.out.println("Thanks, you've chosen not to decrypt your password!");
+       // }
+    }
 }
+
